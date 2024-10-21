@@ -59,7 +59,6 @@ Template.meteorStatus.onCreated(function () {
   // set tracker for retry delay
   Tracker.autorun(function () {
     // set nextRetry delay update
-    console.log('Meteor.status().status:', Meteor.status().status);
     if (Meteor.status().status === 'waiting') {
       instance.updateCountdownTimeout = Meteor.setInterval(function () {
         instance.nextRetry.set(Math.round((Meteor.status().retryTime - (new Date()).getTime()) / 1000));
